@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+.app{
+    height: 100vh;
+    display: flex;
+    background-color:#020230;
+    color: white;
+}
+.main{
+    width: 75%;
+   background:linear-gradient(to bottom,rgba(0,0,0,0),#020230) ,url("./assets/bg.jpg") center/cover no-repeat;
+   display: flex;
+   flex-direction: column;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.top{
+    height: 50%;
+    position: relative;
+}
+.timer{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+}
+.bottom{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+.trivia{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.question{
+    width: 80%;
+    background-color: black;
+    color: white;
+    border: 5px solid red;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.answers{
+    width: 100%;
+   display: grid;
+   grid-gap: 5px;
+   padding: 30px;
+   grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    
+}
+.answer{
+    
+    background:linear-gradient(#0e0124,#22074d);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 7px;
+    border: 4px solid rgb(51, 48, 48);
+    cursor: pointer;
+}
+.answer:hover , .answer.active{
+    background: rgb(107, 105, 75);
+} 
+
+.answer.correct{
+    animation: correct 3s ease forwards;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes correct{
+    0%,22%,42%{
+        background: mediumblue;
+    }
+    20%,40%,60%{
+        background:linear-gradient(#0e0124,#22074d);
+    }
+    62%,100%{
+        background: green;
+    }
+}
+.answer.wrong{
+    animation: wrong 3s ease forwards;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes wrong{
+    0%,22%,42%{
+        background: mediumblue;
+    }
+    20%,40%,60%{
+        background:linear-gradient(#0e0124,#22074d);
+    }
+    62%,100%{
+        background: red;
+    }
+}
+.pyramid{
+    width: 25%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.monyList{
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column-reverse; */
+}
+.monyListItem{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.monyListItem.active{
+    background-color: teal;
+}
+
+
+
+.monyListItemNumber{
+    width: 30%;
+font-size: 18px;
+font-weight: 100;
+}
+
+.monyListItemAmount{
+    font-size: 20px;
+    font-weight: 300;
+
+}
+
+.endText{
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@media (max-width:600pxpx){
+    .pyramid{
+        width: 40%;
+    }
+    .question{
+        width: 60%;
+    }
+
 }
